@@ -1,0 +1,307 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #181818;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    color: #f5f5f5;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.player {
+    background: #252525;
+    border-radius: 16px;
+    padding: 30px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 6px 4px 20px rgb(244 234 234);
+    transform: translateY(50px);
+    animation: slideUp 0.8s ease forwards;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.track-art {
+    height: 300px;
+    width: 300px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 56px;
+    margin: 0 auto 20px auto;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.7);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+    animation: rotate 12s infinite linear;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.track-art:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.8);
+    animation-play-state: paused;
+}
+
+.now-playing {
+    font-size: 1rem;
+    color: #ff8a00;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeInText 1s ease 0.4s forwards;
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.track-name {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #fff;
+    margin: 10px 0;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+    opacity: 0;
+    animation: fadeInText 1s ease 0.6s forwards;
+}
+
+.track-name:hover {
+    color: #ff8a00;
+}
+
+.track-artist {
+    font-size: 1.2rem;
+    color: #b3b3b3;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeInText 1s ease 0.8s forwards;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+    opacity: 0;
+    animation: fadeInText 1s ease 1s forwards;
+}
+
+.buttons div {
+    background: #ff8a00;
+    color: #181818;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 0px 4px 12px rgba(255, 138, 0, 0.4);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.buttons div:hover {
+    transform: scale(1.15);
+    box-shadow: 0px 4px 20px rgba(255, 138, 0, 0.7);
+    animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.slider-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0;
+    width: 100%;
+    opacity: 0;
+    animation: fadeInText 1s ease 1.2s forwards;
+}
+
+.seek-slider { 
+    -webkit-appearance: none;
+    appearance: none;
+    width: 90%;
+    height: 8px;
+    border-radius: 5px;
+    background: #b3b3b3;
+    outline: none;
+    transition: background 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.seek-slider::-webkit-slider-thumb,
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #ff8a00;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(255, 138, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.seek-slider::-webkit-slider-thumb:hover,
+.volume-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+.seek-slider:hover,
+.volume-slider:hover {
+    background: #ff8a00;
+}
+
+/* New CSS for Sound Wave Animation */
+
+.sound-wave-container {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.sound-wave {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    background: rgba(255, 138, 0, 0.2);
+}
+
+.sound-wave div {
+    width: 6px;
+    height: 100%;
+    background: #ff8a00;
+    animation: wave 1s infinite ease-in-out;
+    border-radius: 5px;
+}
+
+.sound-wave div:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.sound-wave div:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.sound-wave div:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.sound-wave div:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+@keyframes wave {
+    0% {
+        height: 50%;
+    }
+    50% {
+        height: 100%;
+    }
+    100% {
+        height: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .player {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .track-art {
+        height: 180px;
+        width: 180px;
+    }
+
+    .buttons div {
+        width: 40px;
+        height: 40px;
+    }
+
+    .sound-wave-container {
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .player {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .track-art {
+        height: 160px;
+        width: 160px;
+    }
+
+    .buttons div {
+        width: 35px;
+        height: 35px;
+    }
+
+    .track-name {
+        font-size: 1.4rem;
+    }
+
+    .track-artist {
+        font-size: 1rem;
+    }
+
+    .sound-wave-container {
+        height: 30px;
+    }
+}
