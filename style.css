@@ -305,3 +305,54 @@ body {
         height: 30px;
     }
 }
+.equalizer {
+  display: flex;
+  gap: 4px;
+  height: 20px;
+}
+
+.equalizer span {
+  width: 4px;
+  background: orange;
+  animation: beat 1s infinite ease-in-out;
+}
+
+.equalizer span:nth-child(2){ animation-delay: .2s; }
+.equalizer span:nth-child(3){ animation-delay: .4s; }
+.equalizer span:nth-child(4){ animation-delay: .6s; }
+.equalizer span:nth-child(5){ animation-delay: .8s; }
+@keyframes beat {
+  0% { height: 5px; }
+  50% { height: 20px; }
+  100% { height: 5px; }
+}
+.credits-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: orange;
+  cursor: pointer;
+}
+
+.credits-popup {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  width: 220px;
+  background: rgba(0,0,0,0.85);
+  padding: 12px;
+  border-radius: 10px;
+  color: white;
+  font-size: 12px;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.credits-icon:hover .credits-popup {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
